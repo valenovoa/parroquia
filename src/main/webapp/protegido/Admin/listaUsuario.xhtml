@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
+
+           
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2">
+                        
+                        <p:column headerText="Persona">   
+                            <p:dataTable 
+                                id="usuario" var="pe" value="#{usuarioController.personas}" 
+                                widgetVar="usTable" emptyMessage="No hay usuarios" editable="true" >
+
+                                <p:column headerText="Editar" style="width:40px">
+                                    <p:rowEditor />
+                                </p:column>
+
+                                <p:column headerText="Apellidos">
+                                    <h:outputText value="#{pe.apellidos}" />
+                                </p:column>
+                                <p:column headerText="Nombres">
+                                    <h:outputText value="#{pe.nombres}" />
+                                </p:column>
+                                <p:column headerText="Dui">
+                                    <h:outputText value="#{pe.dui}" />
+                                </p:column>
+                                <p:column headerText="Carnet">
+                                    <h:outputText value="#{pe.carnet}" />
+                                </p:column>
+                            </p:dataTable >
+                        </p:column> 
+                        <p:column headerText="Usuario">        
+                            <p:dataTable var="us" value="#{usuarioController.usuarios}" editable="true">
+                                <p:column headerText="Tipo Usuario">
+                                    <h:outputText value="#{us.tipo}" />
+                                </p:column>
+                                <p:column headerText="Usuario">
+                                    <h:outputText value="#{us.usuario}" />
+                                </p:column>
+                                <p:column headerText="Contraseña">
+                                    <h:outputText value="#{us.clave}" />
+                                </p:column>
+                                <p:column headerText="Editar" style="width:40px">
+                                    <p:rowEditor />
+                                </p:column>
+                            </p:dataTable> 
+                        </p:column>
+                    </h:panelGrid>
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
