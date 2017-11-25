@@ -55,6 +55,13 @@ public class Feligres implements Serializable {
   
     @Column(name = "nomParroco")
     private String nomParroco;
+    
+    @Column(name="numLibro")
+    private int numLibro;
+    
+     @Column(name="numPagina")
+    private int numPagina;
+    
 
     public Feligres() {
     }
@@ -63,7 +70,7 @@ public class Feligres implements Serializable {
         this.codigo = codigo;
     }
 
-    public Feligres(int codigo, String nombres, String apellidos, String nomMama, String nomPapa, Date fechaNacimiento, Date fechaBautizo, String lugar, String nomParroco) {
+    public Feligres(int codigo, String nombres, String apellidos, String nomMama, String nomPapa, Date fechaNacimiento, Date fechaBautizo, String lugar, String nomParroco, int numLibro, int numPagina ) {
         this.codigo = codigo;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -73,8 +80,11 @@ public class Feligres implements Serializable {
         this.fechaBautizo = fechaBautizo;
         this.lugar = lugar;
         this.nomParroco = nomParroco;
+        this.numLibro=numLibro;
+        this.numPagina=numPagina;
     }
 
+    
     public int getCodigo() {
         return codigo;
     }
@@ -162,6 +172,26 @@ public class Feligres implements Serializable {
     public void setNomParroco(String nomParroco) {
         this.nomParroco = nomParroco;
     }
+
+    public int getNumLibro() {
+        return numLibro;
+    }
+
+    public void setNumLibro(int numLibro) {
+        this.numLibro = numLibro;
+    }
+
+    public int getNumPagina() {
+        return numPagina;
+    }
+
+    public void setNumPagina(int numPagina) {
+        this.numPagina = numPagina;
+    }
+    
+    
+    
+    
 
     @Override
     public int hashCode() {

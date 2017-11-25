@@ -24,7 +24,9 @@
                         <p:row>
                             <p:column><p:outputLabel for="txtnombre" value="Nombres" /></p:column>
                             <p:column ><p:outputLabel for="txtapellidos" value="Apellidos" /></p:column>
-                            <p:column ><p:outputLabel for="txtfecha" value="Fecha de nacimiento" /></p:column>    
+                            <p:column ><p:outputLabel for="txtfecha" value="Fecha de nacimiento" /></p:column>  
+                            <p:column ><p:outputLabel for="txtlibro" value="No. Libro" /></p:column>
+                            <p:column ><p:outputLabel for="txtpagina" value="No. Pagina" /></p:column>  
                         </p:row>
                         <p:row>
                             <p:column >
@@ -39,6 +41,17 @@
                             <p:column >
                                  <p:calendar id="txtfecha" value="#{feligresController.feligres.fechaNacimiento}"/>
                         <p:message for="txtfecha"/>
+                            </p:column>
+                            
+                            <p:column >
+                                 <p:inputText id="txtlibro" value="#{feligresController.feligres.numLibro}"/>
+                        <p:message for="txtlibro"/>
+                            </p:column>
+                            
+                            
+                            <p:column >
+                                 <p:inputText id="txtpagina" value="#{feligresController.feligres.numPagina}"/>
+                        <p:message for="txtpagina"/>
                             </p:column>
                             
                         </p:row>
