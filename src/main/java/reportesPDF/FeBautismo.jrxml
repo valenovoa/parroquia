@@ -1,29 +1,290 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95daa920-0c5c-4254-8a65-e141a1a25e1b">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<style name="Heading 3" fontSize="14" isBold="true"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="lugarNacimiento" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from feligres;]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomMama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomPapa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomMadrina" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomPadrino" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaNacimiento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaBautizo" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomParroco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numLibro" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numPagina" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugarNacimiento" class="java.lang.String"/>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="297" y="0" width="258" height="83" forecolor="#FF9900" uuid="6111d7fa-7185-4bc7-8aef-ff0d4e8707db"/>
+				<textElement>
+					<font fontName="Harlow Solid Italic" size="11"/>
+				</textElement>
+				<text><![CDATA[Si el Espiritu de Dios, que resucitó a Jesús de  entre los muertos, habita en ustedes, el que resucitó de entre los muertos, a Cristo Jesús vivificará también sus cuerpos mortales, por el mismo Espiritu que habia en ustedes. 
+(Romanos 8,11)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="575" splitType="Stretch">
+			<staticText>
+				<reportElement x="58" y="17" width="100" height="20" uuid="f9d05ed7-383c-4e6e-94db-cd0a328d6b78"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[No. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="86" y="17" width="100" height="20" uuid="4683902c-bd54-43d0-b34f-35d6553932de"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numLibro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="62" width="484" height="31" uuid="e1c731a9-6c38-474f-8a86-3f43c51ea1e5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[El infraescrito,Cura Párroco de la Parroquia San Francisco, certifica que:                                       ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="93" width="482" height="34" uuid="c1a1728c-369e-4228-91eb-697e7f10b4a8"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[En el libro No.          Folio No.          se encuentra la fe de Bautismo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="93" width="28" height="21" uuid="e4adaf03-5027-49f8-8503-b5872fe63217"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numLibro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="93" width="18" height="21" uuid="6a094ff7-0573-4128-81ff-f63624e8e29a"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numPagina}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="127" width="100" height="20" uuid="6f4f8460-e5ca-4412-8b4a-a5d7f35ff9a9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="86" y="127" width="201" height="20" uuid="36b08608-9b31-4534-87dd-5d29c74104dc"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="127" width="111" height="20" uuid="3eafa837-4dd8-49a9-bd35-d6e94f1e925b"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="127" width="132" height="31" uuid="8f9adf23-6f81-4aae-b3ab-ff57de0508c0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[   hijo(a) de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="158" width="198" height="27" uuid="39945d79-5c07-4dd2-9cfe-04a9faecdca1"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomPapa}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="60" y="175" width="467" height="1" uuid="3188c087-ae45-4fc5-8a12-f4cba4fb3015"/>
+			</line>
+			<staticText>
+				<reportElement x="60" y="185" width="100" height="20" uuid="ac9f8f6c-5650-4028-852d-71abe5f00de1"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[y de ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="109" y="185" width="100" height="20" uuid="f7bfa40e-8cb3-429e-a04a-14b619ac8b90"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomMama}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="109" y="204" width="418" height="1" uuid="e8994d72-719b-421b-8f7d-6bf2635f2f22"/>
+			</line>
+			<staticText>
+				<reportElement x="58" y="217" width="100" height="20" uuid="89e2287f-ffbe-4309-ac67-cf508a9bf9f4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[nació en]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="217" width="154" height="20" uuid="886e6865-7f44-42eb-b98f-ca94a508f199"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[en la fecha y hora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="370" y="217" width="157" height="20" uuid="ded59297-2204-4e45-be22-553094ebb920"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaNacimiento}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="134" y="237" width="96" height="1" uuid="e209b5ba-4773-4d89-9633-5222fb20b4f8"/>
+			</line>
+			<staticText>
+				<reportElement x="58" y="248" width="216" height="26" uuid="9c0620bd-666e-453d-86ff-fe29c81ee7ea"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Bautizado(a) en la fecha y hora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="248" width="150" height="20" uuid="06fdf32c-f5d1-4a42-90ea-c22a81ea411d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaBautizo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="274" y="268" width="253" height="1" uuid="df813c9d-0dff-4ed4-b138-2b22c9e455da"/>
+			</line>
+			<line>
+				<reportElement x="370" y="237" width="172" height="1" uuid="3843949f-85c0-4dcf-b61e-f7b8d4c9a973"/>
+			</line>
+			<staticText>
+				<reportElement x="58" y="288" width="100" height="19" uuid="fc5ab353-2323-41c3-bcca-5dc36843c9e1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Por el Padre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="288" width="214" height="20" uuid="61a419bb-ed8d-4530-8b8b-3f4d92fe446b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomParroco}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="158" y="308" width="212" height="1" uuid="2fefeb6e-3868-44c6-982c-4b4c1d3b731d"/>
+			</line>
+			<staticText>
+				<reportElement x="422" y="291" width="100" height="20" uuid="4e8eaa42-19cf-4e63-847c-d4a8ea972450"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Padrino(s):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="58" y="325" width="327" height="20" uuid="3e13a074-fd62-4f0e-ab9d-b44335e8e2c7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomPadrino}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="60" y="345" width="467" height="1" uuid="e0a1d0d7-0dfc-4c4c-bf88-a565ebc6b479"/>
+			</line>
+			<staticText>
+				<reportElement x="60" y="359" width="26" height="20" uuid="80b34707-c16d-440d-8b76-5145ab64ac18"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Y]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="109" y="359" width="286" height="20" uuid="70801fda-61aa-4682-bd7d-5bce91f2b649"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomMadrina}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="109" y="378" width="418" height="1" uuid="41ed4b29-562b-4224-af4e-1b56275964fc"/>
+			</line>
+			<staticText>
+				<reportElement x="60" y="426" width="100" height="20" uuid="7bd79941-63bb-4d6f-96c6-5dfc916d833a"/>
+				<textElement>
+					<font size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[San Salvador,]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="158" y="426" width="262" height="20" uuid="c4a4d7a2-34df-45ec-8d94-952b82856d5e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="134" y="505" width="301" height="1" uuid="89bd8667-8f40-41c6-a27e-4720fc470f7d"/>
+			</line>
+			<staticText>
+				<reportElement x="230" y="505" width="100" height="20" uuid="39c37d6a-98d9-4c0d-9466-33477fa96e06"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Párroco]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Heading 3" x="141" y="210" width="89" height="20" uuid="49d16226-c57c-46ba-a599-60e6cc63ce2d"/>
+				<textFieldExpression><![CDATA[$F{lugarNacimiento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
 </jasperReport>

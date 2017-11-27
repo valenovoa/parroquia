@@ -62,6 +62,8 @@ public class Feligres implements Serializable {
      @Column(name="numPagina")
     private int numPagina;
     
+     @Column(name = "lugarNacimiento")
+     private String lugarNacimiento;
 
     public Feligres() {
     }
@@ -187,6 +189,14 @@ public class Feligres implements Serializable {
 
     public void setNumPagina(int numPagina) {
         this.numPagina = numPagina;
+    }
+
+    public String getLugarNacimiento() {
+        return lugarNacimiento;
+    }
+
+    public void setLugarNacimiento(String lugarNacimiento) {
+        this.lugarNacimiento = lugarNacimiento;
     }
     
     
