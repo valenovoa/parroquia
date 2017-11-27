@@ -14,26 +14,29 @@
                 <h:form>    
                 <p:dataTable id="feligres" var="fel" value="#{buscarController.feligress}"
                              widgetVar="feliTable" emptyMessage="No hay feligres">
-                    <p:column headerText="Nombre Feligres" >
-                        <h:outputText value="#{fel.apellidos}, #{fel.nombres}" />
+                    <p:column headerText="Nombres Feligres"  filterBy="#{fel.nombres}">
+                        <h:outputText value="#{fel.nombres}" />
+                    </p:column>
+                    <p:column headerText="Apellidos Feligres"  filterBy="#{fel.apellidos}">
+                        <h:outputText value="#{fel.apellidos}" />
                     </p:column>
                     
-                    <p:column headerText="Fecha de nacimiento" >
+                    <p:column headerText="Fecha de nacimiento (busqueda '88')"  filterBy="#{fel.fechaNacimiento.year}">
                         <h:outputText value="#{fel.fechaNacimiento}"   > 
                            <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>   
                     </p:column>
-                    <p:column headerText="fecha de bautizo">
+                    <p:column headerText="fecha de bautizo (busqueda '88')" filterBy="#{fel.fechaBautizo.year}">
                         <h:outputText value="#{fel.fechaBautizo}" >
                            <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>   
                     </p:column>
                     
-                    <p:column headerText="Nombre Madre" >
+                    <p:column headerText="Nombre Madre" filterBy="#{fel.nomMama}" >
                         <h:outputText value="#{fel.nomMama}" />
                     </p:column>
                     
-                    <p:column headerText="Nombre padre" >
+                    <p:column headerText="Nombre padre" filterBy="#{fel.nomPapa}" >
                         <h:outputText value="#{fel.nomPapa}" />
                     </p:column>
                   <!--  <p:column headerText="Numero de libro" >
