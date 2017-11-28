@@ -38,6 +38,9 @@ public class Usuario implements Serializable {
     
     @Column(name = "imagen")
     private String imagen = "estudiante.jpg";
+    
+    @Column(name = "perfil")
+    private String perfil = "sec.jpg";
 
     public Persona getCodigo() {
         return codigo;
@@ -87,6 +90,14 @@ public class Usuario implements Serializable {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
     
     

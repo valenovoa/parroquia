@@ -48,11 +48,14 @@ public class feligresController implements Serializable{
     }
     
     public void registrar(){
+        
         try{
            feligresEJB.create(feligres);
            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se registro"));
+           
         }catch(Exception e){
              FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Erro al registrar"));
         }
+        
     }
 }

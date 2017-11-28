@@ -73,12 +73,14 @@
                             <!-- Sidebar user panel -->
                             <div class="user-panel">
                                 <div class="pull-left image">
-                                    <h:graphicImage library="images" name="user2-160x160.jpg"  class="img-circle" alt="User Image"/>
-
+                                    <h:graphicImage library="images" name="#{menuController.mostrarPerfil()}"  class="img-circle" alt="User Image"/>
+                                   
                                 </div>
 
                                 <div class="pull-left info">
-                                    <p>#{menuController.mostrarNombreUsuario()}<!-- NOMBRE DE USUARIO LATERAL--> </p>
+                                    <a href="../../protegido/principal.parroquia">
+                                        <p><h4> #{menuController.mostrarNombreUsuario()}</h4><!-- NOMBRE DE USUARIO LATERAL--> </p>
+                                    </a>
                                 </div>
                             </div>
 
@@ -89,9 +91,11 @@
 
                                 <!-- menu de navegacion -->
                                 <h:form>
+                                    <p>
+                                      <!--  <h:commandLink value="Principal" action="../../protegido/principal.parroquia" />-->
+                                        
+                                    </p>
                                     <p:panelMenu  model="#{menuController.model}" />
-
-
                                 </h:form>
 
                             </ul>

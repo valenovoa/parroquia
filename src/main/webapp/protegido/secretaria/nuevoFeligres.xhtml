@@ -58,6 +58,7 @@
                         <p:row >
                             <p:column > <p:outputLabel for="txtmadre" value="Nombres de la Mamá" /></p:column>
                             <p:column > <p:outputLabel for="txtpadre" value="Nombres del Papá" /> </p:column>
+                            <p:column > <p:outputLabel for="txtlugarN" value="Lugar de Nacimiento" /> </p:column>
                             
                         </p:row>
                         <p:row >
@@ -68,6 +69,10 @@
                             <p:column >
                                 <p:inputText id="txtpadre" value="#{feligresController.feligres.nomPapa}"/>
                         <p:message for="txtpadre"/>
+                            </p:column>
+                            <p:column >
+                                <p:inputText id="txtlugarN" value="#{feligresController.feligres.lugarNacimiento}"/>
+                        <p:message for="txtlugarN"/>
                             </p:column>
                             
                         </p:row>
@@ -110,7 +115,8 @@
                     </p:panelGrid>
                      <p:separator />
                      <center>
-                     <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{feligresController.registrar()}"  style="align-content: center"/>
+                         <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{feligresController.registrar()}"  style="align-content: center" action="principal"/>
+                         
                      </center> 
                      <p:separator />
                      
