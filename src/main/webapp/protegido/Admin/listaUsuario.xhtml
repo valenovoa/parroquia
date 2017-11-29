@@ -7,24 +7,22 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
+        <!-- Plantilla -->
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
-
-           
-
+            
             <ui:define name="content">
                 <h:form>
+                   
                     <h:panelGrid columns="2">
-                        
-                        <p:column headerText="Persona">   
+                        <!-- muestra un listado de todos los Usuarios y sus datos-->
+                         <p:column headerText="Persona">   
                             <p:dataTable 
                                 id="usuario" var="pe" value="#{usuarioController.personas}" 
                                 widgetVar="usTable" emptyMessage="No hay usuarios" editable="true" >
-
+                                
                                 <p:column headerText="Editar" style="width:40px">
                                     <p:rowEditor />
                                 </p:column>
-
                                 <p:column headerText="Apellidos">
                                     <h:outputText value="#{pe.apellidos}" />
                                 </p:column>

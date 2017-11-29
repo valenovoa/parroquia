@@ -28,3 +28,6 @@ a:link:hover, a:visited:hover  {
   text-decoration : underline;
 }
 
+.panelGridCenter td,.panelGridCenter tr {
+    text-align: center;
+}

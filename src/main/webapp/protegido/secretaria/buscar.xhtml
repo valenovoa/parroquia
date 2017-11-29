@@ -7,50 +7,53 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
+        <!-- Plantilla -->
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
-
+            <!-- Cuerpo de la pagina -->
             <ui:define name="content">
-                <h:form>    
-                <p:dataTable id="feligres" var="fel" value="#{buscarController.feligress}"
-                             widgetVar="feliTable" emptyMessage="No hay feligres">
-                    <p:column headerText="Nombres Feligres"  filterBy="#{fel.nombres}">
-                        <h:outputText value="#{fel.nombres}" />
-                    </p:column>
-                    <p:column headerText="Apellidos Feligres"  filterBy="#{fel.apellidos}">
-                        <h:outputText value="#{fel.apellidos}" />
-                    </p:column>
-                    
-                    <p:column headerText="Fecha de nacimiento (busqueda '88')"  filterBy="#{fel.fechaNacimiento.year}">
-                        <h:outputText value="#{fel.fechaNacimiento}"   > 
-                           <f:convertDateTime pattern="dd/MM/yyyy"/>
-                        </h:outputText>   
-                    </p:column>
-                    <p:column headerText="fecha de bautizo (busqueda '88')" filterBy="#{fel.fechaBautizo.year}">
-                        <h:outputText value="#{fel.fechaBautizo}" >
-                           <f:convertDateTime pattern="dd/MM/yyyy"/>
-                        </h:outputText>   
-                    </p:column>
-                    
-                    <p:column headerText="Nombre Madre" filterBy="#{fel.nomMama}" >
-                        <h:outputText value="#{fel.nomMama}" />
-                    </p:column>
-                    
-                    <p:column headerText="Nombre padre" filterBy="#{fel.nomPapa}" >
-                        <h:outputText value="#{fel.nomPapa}" />
-                    </p:column>
-                  <!--  <p:column headerText="Numero de libro" >
-                        <<h:outputText value=""
-                    </p:column>
-                    <p:column headerText="Numero de pagona">
-                        
-                    </p:column>-->
-                  <p:column headerText="imprimir" >
-                      <h:commandLink action="imprimir" actionListener="#{buscarController.asignar(fel)}" >
-                          <center> <h:graphicImage library="images" name="print.png"  style="width: 30%"/> </center>
-                      </h:commandLink>
-                  </p:column>
-                </p:dataTable>
+                <h:form>   
+                    <!-- tabla de buscar feligres con filtro-->    
+                    <p:dataTable id="feligres" var="fel" value="#{buscarController.feligress}"
+                                 widgetVar="feliTable" emptyMessage="No hay feligres" styleClass="panelGridCenter">
+                        <p:column headerText="Nombres Feligres"  filterBy="#{fel.nombres}">
+                            <h:outputText value="#{fel.nombres}" />
+                        </p:column>
+                        <p:column headerText="Apellidos Feligres"  filterBy="#{fel.apellidos}">
+                            <h:outputText value="#{fel.apellidos}" />
+                        </p:column>
+                        <!-- busqueda tiene que ser con los ultimos digitos del año -->
+                        <p:column headerText="Fecha de nacimiento (busqueda '88')"  filterBy="#{fel.fechaNacimiento.year}">
+                            <h:outputText value="#{fel.fechaNacimiento}"   > 
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>   
+                        </p:column>
+                        <!-- busqueda tiene que ser con los ultimos digitos del año -->
+                        <p:column headerText="fecha de bautizo (busqueda '88')" filterBy="#{fel.fechaBautizo.year}">
+                            <h:outputText value="#{fel.fechaBautizo}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>   
+                        </p:column>
+
+                        <p:column headerText="Nombre Madre" filterBy="#{fel.nomMama}" >
+                            <h:outputText value="#{fel.nomMama}" />
+                        </p:column>
+
+                        <p:column headerText="Nombre padre" filterBy="#{fel.nomPapa}" >
+                            <h:outputText value="#{fel.nomPapa}" />
+                        </p:column>
+                        <p:column headerText="No libro" >
+                            <h:outputText value="#{fel.numLibro}"/>
+                        </p:column>
+                        <p:column headerText="No de pagina">
+                            <h:outputText value="#{fel.numPagina}"/>
+                        </p:column>
+                        <!-- manda a un nuevo enlace con los datos del feligres seleccionado -->  
+                        <p:column headerText="imprimir" >
+                            <h:commandLink action="imprimir" actionListener="#{buscarController.asignar(fel)}" >
+                                <center> <h:graphicImage library="images" name="print.png"  style="width: 40%"/> </center>
+                            </h:commandLink>
+                        </p:column>
+                    </p:dataTable>
                 </h:form>
             </ui:define>
 

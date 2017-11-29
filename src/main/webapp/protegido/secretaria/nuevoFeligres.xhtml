@@ -7,26 +7,42 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
+        <!-- Plantilla -->
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
                 <h:form >
-                     <p:messages id="mensaje" autoUpdate="false"  severity="info, fatal" showSummary="true" showDetail="true"/>
-
+                    <!-- mensaje -->
+                    <p:messages id="mensaje" autoUpdate="false"  severity="info, fatal" showSummary="true" showDetail="true"/>
+                    
                     <p:panelGrid style="margin-top:20px" >
-                        
                         <f:facet name="header">
                             <p:row>
-                                <p:column colspan="9" > Datos del Feligres</p:column>
+                                <p:column colspan="4" > Datos del Feligres</p:column>
                             </p:row>
                         </f:facet>
+                        <p:row >
+                            <p:column colspan="2" ><p:outputLabel for="txtlibro" value="No. Libro" /></p:column>
+                            <p:column colspan="2" ><p:outputLabel for="txtpagina" value="No. Pagina" /></p:column>  
+                            
+                        </p:row>
+                        <p:row >
+                            <p:column colspan="2" >
+                                <p:inputText id="txtlibro" value="#{feligresController.feligres.numLibro}" style=" text-align: left;" />
+                                <p:message for="txtlibro"/>
+                            </p:column>
+
+
+                            <p:column colspan="2" >
+                                <p:inputText id="txtpagina" value="#{feligresController.feligres.numPagina}" style=" text-align: left;"/>
+                                <p:message for="txtpagina"/>
+                            </p:column>
+                        </p:row>
                         <p:row>
                             <p:column><p:outputLabel for="txtnombre" value="Nombres" /></p:column>
                             <p:column ><p:outputLabel for="txtapellidos" value="Apellidos" /></p:column>
                             <p:column ><p:outputLabel for="txtfecha" value="Fecha de nacimiento" /></p:column>  
-                            <p:column ><p:outputLabel for="txtlibro" value="No. Libro" /></p:column>
-                            <p:column ><p:outputLabel for="txtpagina" value="No. Pagina" /></p:column>  
+                            <p:column > <p:outputLabel for="txtlugarN" value="Lugar de Nacimiento" /> </p:column>
                         </p:row>
                         <p:row>
                             <p:column >
@@ -34,96 +50,84 @@
                                 <p:message for="txtnombre"/>
                             </p:column>
                             <p:column >
-                                   <p:inputText id="txtapellidos"  value="#{feligresController.feligres.apellidos}"/>
-                                    <p:message for="txtapellidos"/>
-                            
+                                <p:inputText id="txtapellidos"  value="#{feligresController.feligres.apellidos}"/>
+                                <p:message for="txtapellidos"/>
+
                             </p:column>
                             <p:column >
-                                 <p:calendar id="txtfecha" value="#{feligresController.feligres.fechaNacimiento}"/>
-                        <p:message for="txtfecha"/>
+                                <p:calendar id="txtfecha" value="#{feligresController.feligres.fechaNacimiento}" navigator="true"/>
+                                <p:message for="txtfecha"/>
                             </p:column>
-                            
                             <p:column >
-                                 <p:inputText id="txtlibro" value="#{feligresController.feligres.numLibro}"/>
-                        <p:message for="txtlibro"/>
+                                <p:inputText id="txtlugarN" value="#{feligresController.feligres.lugarNacimiento}" />
+                                <p:message for="txtlugarN"/>
                             </p:column>
-                            
-                            
-                            <p:column >
-                                 <p:inputText id="txtpagina" value="#{feligresController.feligres.numPagina}"/>
-                        <p:message for="txtpagina"/>
-                            </p:column>
-                            
+
+
                         </p:row>
                         <p:row >
-                            <p:column > <p:outputLabel for="txtmadre" value="Nombres de la Mamá" /></p:column>
-                            <p:column > <p:outputLabel for="txtpadre" value="Nombres del Papá" /> </p:column>
-                            <p:column > <p:outputLabel for="txtlugarN" value="Lugar de Nacimiento" /> </p:column>
-                            
+                            <p:column colspan="2" > <p:outputLabel for="txtmadre" value="Nombres de la Mamá" /></p:column>
+                            <p:column colspan="2"> <p:outputLabel for="txtpadre" value="Nombres del Papá" /> </p:column>
+
+
                         </p:row>
                         <p:row >
-                            <p:column >
-                                    <p:inputText id="txtmadre" value="#{feligresController.feligres.nomMama}" />
-                                    <p:message for="txtmadre"/>
+                            <p:column colspan="2">
+                                <p:inputText id="txtmadre" value="#{feligresController.feligres.nomMama}" style="width: 95%"/>
+                                <p:message for="txtmadre"/>
                             </p:column>
-                            <p:column >
-                                <p:inputText id="txtpadre" value="#{feligresController.feligres.nomPapa}"/>
-                        <p:message for="txtpadre"/>
+                            <p:column colspan="2">
+                                <p:inputText id="txtpadre" value="#{feligresController.feligres.nomPapa}" style="width: 95%"/>
+                                <p:message for="txtpadre"/>
                             </p:column>
-                            <p:column >
-                                <p:inputText id="txtlugarN" value="#{feligresController.feligres.lugarNacimiento}"/>
-                        <p:message for="txtlugarN"/>
-                            </p:column>
-                            
+
+
                         </p:row>
                         <p:row >
-                            <p:column ><p:outputLabel for="txtmadrina" value="Nombres de la madrina" /></p:column>
-                            <p:column ><p:outputLabel for="txtpadrino" value="Nombres del padrino" /></p:column>
+                            <p:column colspan="2"><p:outputLabel for="txtmadrina" value="Nombres de la madrina"  /></p:column>
+                            <p:column colspan="2"><p:outputLabel for="txtpadrino" value="Nombres del padrino"  /></p:column>
                         </p:row>
-                        
+
                         <p:row >
-                            <p:column >
-                                <p:inputText id="txtmadrina" value="#{feligresController.feligres.nomMadrina}"/>
+                            <p:column colspan="2">
+                                <p:inputText id="txtmadrina" value="#{feligresController.feligres.nomMadrina}" style="width: 95%"/>
                             </p:column>
-                            <p:column >
-                                <p:inputText id="txtpadrino" value="#{feligresController.feligres.nomPadrino}"/>
+                            <p:column colspan="2">
+                                <p:inputText id="txtpadrino" value="#{feligresController.feligres.nomPadrino}" style="width: 95%"/>
                             </p:column>
                         </p:row>
                         <p:row>
                             <p:column ><p:outputLabel for="txtlugar" value="lugar de bautizo" /></p:column>
                             <p:column ><p:outputLabel for="txtfechaB" value="Fecha de Bautizo" /></p:column>
-                            <p:column >  <p:outputLabel for="txtparroco" value="Nombre del parroco que bautizo" /></p:column>
+                            <p:column colspan="2">  <p:outputLabel for="txtparroco" value="Nombre del parroco que bautizo" /></p:column>
                         </p:row>
                         <p:row>
                             <p:column >
                                 <p:selectOneMenu id="txtlugar"  value="#{feligresController.feligres.lugar}">
-                            <f:selectItem itemLabel="Seleccione uno" itemValue="" />
-                            <f:selectItem itemLabel="Parroquia San francisco" itemValue="Parroquia San francisco" />
-                        </p:selectOneMenu>
-                        <p:message for="txtlugar"/>
+                                    <f:selectItem itemLabel="Seleccione uno" itemValue="" />
+                                    <f:selectItem itemLabel="Parroquia San francisco" itemValue="Parroquia San francisco" />
+                                </p:selectOneMenu>
+                                <p:message for="txtlugar"/>
                             </p:column>
                             <p:column >
-                                      <p:calendar id="txtfechaB" value="#{feligresController.feligres.fechaBautizo}"/>
-                        <p:message for="txtfechaB"/>
+                                <p:calendar id="txtfechaB" value="#{feligresController.feligres.fechaBautizo}" navigator="true" />
+                                <p:message for="txtfechaB"/>
                             </p:column>
-                            <p:column >
-                                  <p:inputText id="txtparroco" value="#{feligresController.feligres.nomParroco}"/>
-                        <p:message for="txtparroco"/>
+                            <p:column colspan="2">
+                                <p:inputText id="txtparroco" value="#{feligresController.feligres.nomParroco}" style="width: 95%"/>
+                                <p:message for="txtparroco"/>
                             </p:column>
                         </p:row>    
-                       
+
                     </p:panelGrid>
-                     <p:separator />
-                     <center>
-                         <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{feligresController.registrar()}"  style="align-content: center" action="principal"/>
-                         
-                     </center> 
-                     <p:separator />
-                     
-                          
-                    
+                    <p:separator />
+                    <center>
+                        <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{feligresController.registrar()}"  style="align-content: center" />
+
+                    </center> 
+                    <p:separator />
                 </h:form>
-                
+
             </ui:define>
 
         </ui:composition>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1e499d1a-f8f0-4b75-85a1-7e3f51817474">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
+	<style name="Heading 4" fontSize="12" isBold="true" isItalic="true"/>
+	<parameter name="nomFeligres" class="java.lang.String"/>
+	<parameter name="nomMama" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement style="Heading 1" x="40" y="12" width="484" height="31" uuid="794c178a-5698-4228-8d9a-04e5d75169fc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[El infraescrito,Cura Párroco de la Parroquia San Francisco, certifica que:                                       ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement style="Heading 4" x="40" y="13" width="484" height="31" uuid="a9a433fd-e558-4e24-9feb-8d750e0284c4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[El infraescrito,Cura Párroco de la Parroquia San Francisco, certifica que:                                       ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="77" width="100" height="20" uuid="784596c5-a984-4e37-ba84-f03647ab64f8"/>
+				<textFieldExpression><![CDATA[$P{nomFeligres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="77" width="100" height="20" uuid="5caba223-a02a-440b-94a6-9852c0610795"/>
+				<textFieldExpression><![CDATA[$P{nomMama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

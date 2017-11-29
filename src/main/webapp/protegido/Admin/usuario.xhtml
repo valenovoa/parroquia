@@ -7,58 +7,41 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
+        <!-- Plantilla -->
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
-            
-             
-            
             <ui:define name="content">
 
                 <h:form>
+                    <!-- Mensaje a mostrar sobre los avisos -->
                     <p:messages id="mensaje" autoUpdate="false"  severity="info, fatal" showSummary="true" showDetail="true"/>
-
+                    <!--Datos personales de nuevo usuario -->
                     <p:fieldset legend="Datos personales" >
                         <h:panelGrid columns="3" id="datos" >
-                            
+
                             <p:outputLabel for="txtApellido" value="Apellidos" />
                             <p:inputText  id="txtApellido" value="#{usuarioController.persona.apellidos}" required="true" requiredMessage="Campo requerido"/>
                             <p:message for="txtApellido" />
-                            
+
                             <p:outputLabel for="txtNombre" value="Nombres" />
                             <p:inputText  id="txtNombre" value="#{usuarioController.persona.nombres}" required="true" requiredMessage="Campo requerido"/>
                             <p:message for="txtNombre" />
-                            
-                            <p:outputLabel for="txtCarnet" value="Carnet" />
-                            <p:inputText  id="txtCarnet" value="#{usuarioController.persona.carnet}" />
-                            <p:message for="txtCarnet" />
-                            
-                            <p:outputLabel for="txtCurso" value="Curso Actual" />
-                            <p:inputMask mask="99"  id="txtCurso" value="#{usuarioController.persona.cursoActual}" />
-                            <p:message for="txtCurso" />
-                            
+
                             <p:outputLabel for="txtdui" value="DUI" />
                             <p:inputMask mask="99999999-9"  id="txtdui" value="#{usuarioController.persona.dui}" required="true" requiredMessage="Campo requerido"/>
                             <p:message for="txtdui" />
-                            
-
-                            
-
-                            
 
                         </h:panelGrid>
                     </p:fieldset>
+                    <!-- Datos de la cuenta del usuario -->
                     <p:fieldset legend="Datos de la cuenta" >
                         <h:panelGrid columns="3" id="cuenta">
 
                             <p:outputLabel for="cboTipo" value="Tipo de Cuenta" />
                             <p:selectOneMenu id="cboTipo" value="#{usuarioController.usuario.tipo}" required="true" requiredMessage="Campo requerido">
-                                <f:selectItem itemValue="E" itemLabel="Estudiante"/> 
-                                
+                                <f:selectItem itemValue="S" itemLabel="Secretaria"/> 
+
                             </p:selectOneMenu>
                             <p:message for="cboTipo" />
-
-
-
                             <p:outputLabel for="txtUsuario" value="Usuario" />
                             <p:inputText id="txtUsuario" value="#{usuarioController.usuario.usuario}" required="true" requiredMessage="Campo requerido"/>
                             <p:message for="txtUsuario" />
@@ -78,10 +61,6 @@
                     </p:fieldset>
 
                 </h:form>
-
-
-
-
             </ui:define>
 
         </ui:composition>

@@ -41,7 +41,7 @@ public class BuscarController implements Serializable{
     public void setFeligres(Feligres feligres) {
         this.feligres = feligres;
     }
-    
+    //guarda los datos del feligres temporalmente para mandarlos al otro controlador
      public void asignar(Feligres feligres){
         this.feligres = feligres;
     }
