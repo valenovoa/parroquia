@@ -13,7 +13,9 @@
             <ui:define name="content">
                 <h:form>   
                     <!-- tabla de buscar feligres con filtro-->    
-                    <p:dataTable id="feligres" var="fel" value="#{buscarController.feligress}"
+                    <p:dataTable id="feligres" var="fel" value="#{buscarController.feligress}" paginator="true" rows="5"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15" currentPageReportTemplate="Pagina ({currentPage} de {totalPages})"
                                  widgetVar="feliTable" emptyMessage="No hay feligres" styleClass="panelGridCenter">
                         <p:column headerText="Nombres Feligres"  filterBy="#{fel.nombres}">
                             <h:outputText value="#{fel.nombres}" />

@@ -43,6 +43,14 @@
             <artifactId>jasperreports</artifactId>
             <version>6.4.3</version>
         </dependency>
+        
+        <!-- dependencia para los temas -->
+        <dependency>
+	<groupId>org.primefaces.extensions</groupId>
+	<artifactId>all-themes</artifactId>
+	<version>1.0.8</version>
+        </dependency>
+        
     </dependencies>
 
     <build>
