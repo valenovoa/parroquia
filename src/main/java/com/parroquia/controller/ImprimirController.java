@@ -1,16 +1,19 @@
-
 package com.parroquia.controller;
 
 import com.parroquia.model.Feligres;
 import com.parroquia.model.Feligress;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -19,24 +22,29 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-
+import net.sf.jasperreports.engine.util.JRLoader;
 
 @Named
 @ViewScoped
-public class ImprimirController implements Serializable{
-    
-    
-    
+public class ImprimirController implements Serializable {
+
     @Inject
     private BuscarController buscarController;
     private Feligres feligres;
-    
-   /* private List<Feligres> feligress = new ArrayList<Feligres>();
+
+    private HttpServletResponse response;
+    private FacesContext context;
+    private ByteArrayOutputStream baos;
+    private InputStream stream;
+
+    /* private List<Feligres> feligress = new ArrayList<Feligres>();
 
     public List<Feligres> getFeligress() {
         Feligress fel = new Feligress();
@@ -61,13 +69,8 @@ public class ImprimirController implements Serializable{
     public void setFeligress(List<Feligres> feligress) {
         this.feligress = feligress;
     }*/
-
-   
-    
-    
-    
     @PostConstruct
-    public void init(){
+    public void init() {
         this.feligres = buscarController.getFeligres();
     }
 
@@ -78,56 +81,80 @@ public class ImprimirController implements Serializable{
     public void setFeligres(Feligres feligres) {
         this.feligres = feligres;
     }
-    
-    
-    
-   /* public void exportarPDF(ActionEvent actionEvent) throws JRException, IOException{
-        
-        /*JasperPrint reportPrint = JasperFillManager.fillReport(
-        this.getClass().getClassLoader().getResourceAsStream("/FeBautismo.jasper"),
-            new HashMap<String,Object>(), 
-                 new JRBeanArrayDataSource(new Feligres[]{feligres}));
-        
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("feligres", feligres);
+/*
+    public void exportarPDF(ActionEvent actionEvent) throws JRException, IOException {
+        HashMap parametros = new HashMap();
+        //  Map<String,Object> parametros= new HashMap<String,Object>();
+        parametros.put("numLibro", feligres.getNumLibro());
+        parametros.put("numFolio", feligres.getNumPagina());
+        parametros.put("nombres", feligres.getNombres());
+        parametros.put("apellidos", feligres.getApellidos());
+        parametros.put("nomMama", feligres.getNomMama());
+        parametros.put("nomPapa", feligres.getNomPapa());
+        parametros.put("lugarNacimiento", feligres.getLugarNacimiento());
+        parametros.put("fechaNacimiento", feligres.getFechaNacimiento());
+        parametros.put("fechaBautizo", feligres.getFechaBautizo());
+        parametros.put("lugar", feligres.getLugar());
+        parametros.put("nomParroco", feligres.getNomParroco());
+        parametros.put("nomMadrina", feligres.getNomMadrina());
+        parametros.put("nomPadrino", feligres.getNomPadrino());
 
-        JasperPrint reportPrint = JasperFillManager.fillReport(
-                this.getClass().getClassLoader().getResourceAsStream("C:\\Users\\valer\\Documents\\NetBeansProjects\\Parroquia\\src\\main\\java\\reportesPDF\\FeBautismo.jasper"),
-                params, new JREmptyDataSource());
-        
+        //File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("C:\\Users\\valer\\Documents\\NetBeansProjects\\Parroquia\\src\\main\\webapp\\protegido\\secretaria\\FeBautismo.jasper"));
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasper.getPath(), parametros, new JREmptyDataSource());
+
         HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
         response.addHeader("Content-disposition", "attachment; filename=jsfReporte.pdf");
         ServletOutputStream stream = response.getOutputStream();
 
-        JasperExportManager.exportReportToPdfStream(reportPrint, stream);
+        JasperExportManager.exportReportToPdfStream(jasperPrint, stream);
 
         stream.flush();
         stream.close();
         FacesContext.getCurrentInstance().responseComplete();
-    
-    }*/
-    
-    /*
-    public void exportarPDF(ActionEvent actionEvent) throws JRException, IOException{
-		
-		
-		File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/FeBautismo.jasper"));
-		JasperPrint jasperPrint = JasperFillManager.fillReport(jasper.getPath(),null, new JRBeanCollectionDataSource(this.getFeligress()));
-		
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-		response.addHeader("Content-disposition","attachment; filename=jsfReporte.pdf");
-		ServletOutputStream stream = response.getOutputStream();
-		
-		JasperExportManager.exportReportToPdfStream(jasperPrint, stream);
-		
-		stream.flush();
-		stream.close();
-		FacesContext.getCurrentInstance().responseComplete();
-	}
-    */
+    }
+*/
+    public void getRelatorio() {
+        stream = this.getClass().getResourceAsStream("/reportesPDF/FeBautismo.jasper");
+        Map<String, Object> parametros = new HashMap<String, Object>();
+        parametros.put("numLibro", feligres.getNumLibro());
+        parametros.put("numFolio", feligres.getNumPagina());
+        parametros.put("nombres", feligres.getNombres());
+        parametros.put("apellidos", feligres.getApellidos());
+        parametros.put("nomMama", feligres.getNomMama());
+        parametros.put("nomPapa", feligres.getNomPapa());
+        parametros.put("lugarNacimiento", feligres.getLugarNacimiento());
+        parametros.put("fechaNacimiento", feligres.getFechaNacimiento());
+        parametros.put("fechaBautizo", feligres.getFechaBautizo());
+        parametros.put("lugar", feligres.getLugar());
+        parametros.put("nomParroco", feligres.getNomParroco());
+        parametros.put("nomMadrina", feligres.getNomMadrina());
+        parametros.put("nomPadrino", feligres.getNomPadrino());
+        baos = new ByteArrayOutputStream();
 
-    
-    
-    
-    
+        try {
+
+            JasperReport report = (JasperReport) JRLoader.loadObject(stream);
+
+            /*Para usar JavaBeanDataSource defina: new JRBeanCollectionDataSource(lista)
+            mude a string do getResourceAsStream("/report/reportPessoaJavaBeanDS.jasper")
+             */
+            JasperPrint print = JasperFillManager.fillReport(report, parametros, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(print, baos);
+
+            response.reset();
+            response.setContentType("application/pdf");
+            response.setContentLength(baos.size());
+            response.setHeader("Content-disposition", "inline; filename=relatorio.pdf");
+            response.getOutputStream().write(baos.toByteArray());
+            response.getOutputStream().flush();
+            response.getOutputStream().close();
+
+            context.responseComplete();
+            
+
+        } catch (IOException | JRException e) {
+            //mensaje
+        } 
+    }
+
 }
