@@ -81,10 +81,10 @@ public class ImprimirController implements Serializable {
     public void setFeligres(Feligres feligres) {
         this.feligres = feligres;
     }
-/*
+
     public void exportarPDF(ActionEvent actionEvent) throws JRException, IOException {
-        HashMap parametros = new HashMap();
-        //  Map<String,Object> parametros= new HashMap<String,Object>();
+       // HashMap parametros = new HashMap();
+        Map<String,Object> parametros= new HashMap<>();
         parametros.put("numLibro", feligres.getNumLibro());
         parametros.put("numFolio", feligres.getNumPagina());
         parametros.put("nombres", feligres.getNombres());
@@ -99,7 +99,7 @@ public class ImprimirController implements Serializable {
         parametros.put("nomMadrina", feligres.getNomMadrina());
         parametros.put("nomPadrino", feligres.getNomPadrino());
 
-        //File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("C:\\Users\\valer\\Documents\\NetBeansProjects\\Parroquia\\src\\main\\webapp\\protegido\\secretaria\\FeBautismo.jasper"));
+        File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/reportesPDF/FeBautismo.jasper"));
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasper.getPath(), parametros, new JREmptyDataSource());
 
         HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
@@ -112,8 +112,8 @@ public class ImprimirController implements Serializable {
         stream.close();
         FacesContext.getCurrentInstance().responseComplete();
     }
-*/
-    public void getRelatorio() {
+
+/*    public void getRelatorio() {
         stream = this.getClass().getResourceAsStream("/reportesPDF/FeBautismo.jasper");
         Map<String, Object> parametros = new HashMap<String, Object>();
         parametros.put("numLibro", feligres.getNumLibro());
@@ -137,7 +137,7 @@ public class ImprimirController implements Serializable {
 
             /*Para usar JavaBeanDataSource defina: new JRBeanCollectionDataSource(lista)
             mude a string do getResourceAsStream("/report/reportPessoaJavaBeanDS.jasper")
-             */
+             *//*
             JasperPrint print = JasperFillManager.fillReport(report, parametros, new JREmptyDataSource());
             JasperExportManager.exportReportToPdfStream(print, baos);
 
@@ -155,6 +155,6 @@ public class ImprimirController implements Serializable {
         } catch (IOException | JRException e) {
             //mensaje
         } 
-    }
+    }*/
 
 }
