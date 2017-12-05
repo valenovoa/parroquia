@@ -11,10 +11,14 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
+                
+                
                 <h:form >
                     <!-- mensaje -->
                     <p:messages id="mensaje" autoUpdate="false"  severity="info, fatal" showSummary="true" showDetail="true"/>
                     
+                    
+                    <center> 
                     <p:panelGrid style="margin-top:20px" >
                         <f:facet name="header">
                             <p:row>
@@ -120,6 +124,9 @@
                         </p:row>    
 
                     </p:panelGrid>
+                    
+                    </center> 
+                    
                     <p:separator />
                     <center>
                         <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{feligresController.registrar()}"  style="align-content: center" />
