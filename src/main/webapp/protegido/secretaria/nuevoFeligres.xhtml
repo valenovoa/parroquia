@@ -13,7 +13,7 @@
             <ui:define name="content">
                 
                 
-                <h:form >
+                <h:form id="datoFeligres" >
                     <!-- mensaje -->
                     <p:messages id="mensaje" autoUpdate="false"  severity="info, fatal" showSummary="true" showDetail="true"/>
                     
@@ -32,13 +32,13 @@
                         </p:row>
                         <p:row >
                             <p:column colspan="2" >
-                                <p:inputText id="txtlibro" value="#{feligresController.feligres.numLibro}" style=" text-align: left;" />
+                             <p:inputMask mask="999" id="txtlibro" value="#{feligresController.feligres.numLibro}" style=" text-align: left;" />
                                 <p:message for="txtlibro"/>
                             </p:column>
 
 
                             <p:column colspan="2" >
-                                <p:inputText id="txtpagina" value="#{feligresController.feligres.numPagina}" style=" text-align: left;"/>
+                                <p:inputMask mask="999" id="txtpagina" value="#{feligresController.feligres.numPagina}" style=" text-align: left;"/>
                                 <p:message for="txtpagina"/>
                             </p:column>
                         </p:row>
@@ -50,11 +50,12 @@
                         </p:row>
                         <p:row>
                             <p:column >
-                                <p:inputText id="txtnombre" value="#{feligresController.feligres.nombres}" />
+                               
+                              <p:inputText   id="txtnombre" value="#{feligresController.feligres.nombres}" />
                                 <p:message for="txtnombre"/>
                             </p:column>
                             <p:column >
-                                <p:inputText id="txtapellidos"  value="#{feligresController.feligres.apellidos}"/>
+                                 <p:inputText id="txtapellidos"  value="#{feligresController.feligres.apellidos}"/>
                                 <p:message for="txtapellidos"/>
 
                             </p:column>
@@ -107,8 +108,7 @@
                         </p:row>
                         <p:row>
                             <p:column >
-                                <p:selectOneMenu id="txtlugar"  value="#{feligresController.feligres.lugar}">
-                                    <f:selectItem itemLabel="Seleccione uno" itemValue="" />
+                                <p:selectOneMenu id="txtlugar"  value="#{feligresController.feligres.lugar}" style="width: 90%">
                                     <f:selectItem itemLabel="Parroquia San francisco" itemValue="Parroquia San francisco" />
                                 </p:selectOneMenu>
                                 <p:message for="txtlugar"/>
@@ -129,7 +129,7 @@
                     
                     <p:separator />
                     <center>
-                        <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{feligresController.registrar()}"  style="align-content: center" />
+                        <p:commandButton icon="ui-icon-check" value="Registrar" update="datoFeligres"   action="buscar" actionListener="#{feligresController.registrar()}"  style="align-content: center" />
 
                     </center> 
                     <p:separator />

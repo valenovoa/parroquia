@@ -9,10 +9,7 @@ import com.parroquia.model.Usuario;
 import java.util.List;
 import javax.ejb.Local;
 
-/**
- *
- * @author valer
- */
+
 @Local
 public interface UsuarioFacadeLocal {
 

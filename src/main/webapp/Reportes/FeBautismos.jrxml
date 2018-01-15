@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95daa920-0c5c-4254-8a65-e141a1a25e1b">
-	<property name="ireport.zoom" value="1.1"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="358"/>
+	<property name="ireport.zoom" value="6.115909044841463"/>
+	<property name="ireport.x" value="581"/>
+	<property name="ireport.y" value="775"/>
 	<style name="Heading 3" fontSize="14" isBold="true"/>
-	<parameter name="numLibro" class="java.lang.String"/>
-	<parameter name="numFolio" class="java.lang.String"/>
+	<parameter name="numLibro" class="java.lang.Integer"/>
+	<parameter name="numFolio" class="java.lang.Integer"/>
 	<parameter name="nombres" class="java.lang.String"/>
 	<parameter name="apellidos" class="java.lang.String"/>
 	<parameter name="nomMama" class="java.lang.String"/>
 	<parameter name="nomPapa" class="java.lang.String"/>
 	<parameter name="lugarNacimiento" class="java.lang.String"/>
-	<parameter name="fechaNacimiento" class="java.lang.String"/>
-	<parameter name="fechaBautizo" class="java.lang.String"/>
+	<parameter name="fechaNacimiento" class="java.util.Date"/>
+	<parameter name="fechaBautizo" class="java.util.Date"/>
 	<parameter name="lugar" class="java.lang.String"/>
 	<parameter name="nomParroco" class="java.lang.String"/>
 	<parameter name="nomMadrina" class="java.lang.String"/>
@@ -21,7 +21,7 @@
 		<![CDATA[select * from feligres;]]>
 	</queryString>
 	<title>
-		<band height="89" splitType="Stretch">
+		<band height="90" splitType="Stretch">
 			<staticText>
 				<reportElement x="297" y="0" width="258" height="83" forecolor="#FF9900" uuid="6111d7fa-7185-4bc7-8aef-ff0d4e8707db"/>
 				<textElement>
@@ -35,7 +35,7 @@
 	<detail>
 		<band height="575" splitType="Stretch">
 			<staticText>
-				<reportElement x="58" y="17" width="100" height="20" uuid="f9d05ed7-383c-4e6e-94db-cd0a328d6b78"/>
+				<reportElement x="41" y="17" width="100" height="20" uuid="f9d05ed7-383c-4e6e-94db-cd0a328d6b78"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -167,61 +167,106 @@
 				<text><![CDATA[Párroco]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="86" y="17" width="48" height="20" uuid="f4b79f4b-2db1-4920-9c3f-93e55e35104c"/>
-				<textFieldExpression><![CDATA[$P{numLibro}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="134" y="17" width="51" height="20" uuid="7ce6b5c4-6e6a-4374-bf00-064a50234f2a"/>
+				<reportElement x="102" y="17" width="51" height="20" uuid="7ce6b5c4-6e6a-4374-bf00-064a50234f2a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{numFolio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="93" width="33" height="20" uuid="96046205-b67e-4d09-ae57-7da538fb229c"/>
+				<reportElement x="153" y="93" width="33" height="20" uuid="96046205-b67e-4d09-ae57-7da538fb229c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{numLibro}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="93" width="44" height="20" uuid="254ac46c-1d8b-4744-b8ec-0ec5867f5198"/>
+				<reportElement x="241" y="93" width="44" height="20" uuid="254ac46c-1d8b-4744-b8ec-0ec5867f5198"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{numFolio}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="86" y="127" width="100" height="20" uuid="d72c9ddf-fe61-4966-b8f2-31ddeae1abf3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nombres}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="213" y="127" width="100" height="20" uuid="f58271c3-8622-44be-89ac-8cbe9d4018ac"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{apellidos}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="86" y="158" width="100" height="20" uuid="f442f711-da40-4f19-9093-10e85ec657b8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nomMama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="141" y="185" width="100" height="20" uuid="41ba6cfd-c60f-4a70-9026-f6046ed5d4f5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nomPapa}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="130" y="218" width="100" height="20" uuid="b295c8fc-3e97-40bd-a3fc-915b3cc3477c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{lugarNacimiento}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="395" y="217" width="100" height="20" uuid="752ee45e-425d-4193-9d1d-83cd81ab2def"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{fechaNacimiento}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="322" y="249" width="100" height="20" uuid="e6060344-a1d0-43fb-b689-27d1299b67c5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{fechaBautizo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="186" y="288" width="100" height="20" uuid="3ba3c3bf-f008-4a5c-ba93-bb53fe3e0a8f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nomParroco}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="74" y="325" width="100" height="20" uuid="4a194377-8030-4e03-8530-6530c9122229"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nomMadrina}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="113" y="358" width="100" height="20" uuid="e77eea84-f150-4009-bb6b-cf9d36d5f21c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nomPadrino}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="74" y="17" width="48" height="20" uuid="f4b79f4b-2db1-4920-9c3f-93e55e35104c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numLibro}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="86" y="27" width="12" height="1" uuid="7fdf0e6f-d41f-4538-89ce-125ca93f8fed"/>
+			</line>
 		</band>
 	</detail>
 </jasperReport>

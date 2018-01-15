@@ -10,10 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author valer
- */
+
 @Stateless
 public class MenuFacade extends AbstractFacade<Menu> implements MenuFacadeLocal {
 

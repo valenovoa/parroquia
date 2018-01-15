@@ -90,5 +90,10 @@ public class UsuarioController implements Serializable{
        
     }
     
+     public void modificar(Usuario us){
+         usuarioEJB.edit(usuario);
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se modifico"));
+     }
+    
     
 }

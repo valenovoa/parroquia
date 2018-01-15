@@ -37,7 +37,7 @@ public class Usuario implements Serializable {
     private short estado = 1;
     
     @Column(name = "imagen")
-    private String imagen = "estudiante.jpg";
+    private String imagen = "SFA.jpg";
     
     @Column(name = "perfil")
     private String perfil = "sec.jpg";

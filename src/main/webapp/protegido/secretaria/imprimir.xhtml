@@ -32,12 +32,18 @@
                          <h:outputText value="#{imprimirController.feligres.nomPadrino}" />
                           <h:outputText value="Nombre del madrina: "/>
                           <h:outputText value="#{imprimirController.feligres.nomMadrina}" />
+                          <h:outputText value="numero de libro: "/>
+                          <h:outputText value="#{imprimirController.feligres.numLibro}" />
+                          <h:outputText value="Numerp de pagina: "/>
+                          <h:outputText value="#{imprimirController.feligres.numPagina}" />
                         
                         
                         
                         
                     </p:panelGrid>
-                    <h:commandButton value="PDF" actionListener="#{imprimirController.exportarPDF}" />
+                    <h:commandLink id="imprimir" actionListener="#{imprimirController.exportarPDF}" >
+                        <h:graphicImage library="images" name="print.png"  style="width: 5%"/>
+                    </h:commandLink>
                 </h:form>
             </ui:define>
 

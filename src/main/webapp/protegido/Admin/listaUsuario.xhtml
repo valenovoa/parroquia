@@ -14,103 +14,83 @@
                 <p:growl autoUpdate="true" />
                 <h:form>
                    
-                    <h:panelGrid columns="2">
+                    
                         <!-- muestra un listado de todos los Usuarios y sus datos-->
-                         <p:column headerText="Persona">   
+                           <p:separator />
+                           <p:outputLabel value="Datos de la persona" />
+                           <p:separator />
                             <p:dataTable 
                                 id="usuario" var="pe" value="#{usuarioController.personas}" 
-                                widgetVar="usTable" emptyMessage="No hay usuarios" editable="true" >
+                                widgetVar="usTable" emptyMessage="No hay usuarios"  >
                                 
-                                <p:column headerText="Editar" style="width:40px">
-                                    <p:rowEditor />
-                                </p:column>
+                               
                                 <p:column headerText="Apellidos">
-                                    <p:cellEditor>
-                                        <f:facet name="output">
+                                    
+                                       
                                             <h:outputText value="#{pe.apellidos}"/>
-                                        </f:facet>
+                                     
                                         
-                                        <f:facet name="input">
-                                            <p:inputText value="#{pe.apellidos}"/>
-                                        </f:facet>                                 
-                                    </p:cellEditor>                                    
+                                                                          
                                 </p:column>
                                 
                                 <!-- no estoy seguro -->
                                 <p:ajax event="rowEdit" listener="#{usuarioController.setPersona(persona)}" />
                                 
                                 <p:column headerText="Nombres">
-                                    <p:cellEditor>
-                                        <f:facet name="output">
-                                            <h:outputText value="#{pe.nombres}"/>
-                                        </f:facet>
+                                    
                                         
-                                        <f:facet name="input">
-                                            <p:inputText value="#{pe.nombres}"/>
-                                        </f:facet>                                 
-                                    </p:cellEditor>                                
+                                            <h:outputText value="#{pe.nombres}"/>
+                                       
+                                        
+                                                                      
+                                                                  
                                 </p:column>
                                 
                                 <p:column headerText="Dui">
-                                    <p:cellEditor>
-                                        <f:facet name="output">
+                                   
                                             <h:outputText value="#{pe.dui}"/>
-                                        </f:facet>
-                                        
-                                        <f:facet name="input">
-                                            <p:inputText value="#{pe.dui}"/>
-                                        </f:facet>                                 
-                                    </p:cellEditor>                                    
+                                      
+                                                                         
                                 </p:column>                                                                                             
                             </p:dataTable >
                             
-                        </p:column> 
-                        
-                        <p:column headerText="Usuario">        
-                            <p:dataTable var="us" value="#{usuarioController.usuarios}" editable="true">
+                  
+                            <p:separator />
+                            <p:outputLabel value="Datos de la persona" />
+                              <p:separator />
+                             
+                            <p:dataTable var="us" value="#{usuarioController.usuarios}">
                                 
                                 <p:column headerText="Tipo Usuario">
-                                    <p:cellEditor>
-                                        <f:facet name="output">
+                                   
                                             <h:outputText value="#{us.tipo}"/>
-                                        </f:facet>
+                                       
                                         
-                                        <f:facet name="input">
-                                            <p:inputText value="#{us.tipo}"/>
-                                        </f:facet>                                 
-                                    </p:cellEditor>                                  
+                                                                        
                                 </p:column>
                                 
                                 <p:column headerText="Usuario">
-                                    <p:cellEditor>
-                                        <f:facet name="output">
+                                  
+                                
                                             <h:outputText value="#{us.usuario}"/>
-                                        </f:facet>
+                                    
                                         
-                                        <f:facet name="input">
-                                            <p:inputText value="#{us.usuario}"/>
-                                        </f:facet>                                 
-                                    </p:cellEditor>                                     
+                                                                         
                                 </p:column>
                                 
                                 <p:column headerText="Contraseña">
-                                    <p:cellEditor>
-                                        <f:facet name="output">
+                                    
                                             <h:outputText value="#{us.clave}"/>
-                                        </f:facet>
+                                      
                                         
-                                        <f:facet name="input">
-                                            <p:inputText value="#{us.clave}"/>
-                                        </f:facet>                                 
-                                    </p:cellEditor>                                      
+                                                                            
                                 </p:column>
                                 
-                                <p:column headerText="Editar" style="width:40px">
-                                    <p:rowEditor />
-                                </p:column>
+                                
+                                
                             </p:dataTable> 
-                        </p:column>
-                    </h:panelGrid>
+                      
+                  
                 </h:form>
                 
             </ui:define>
